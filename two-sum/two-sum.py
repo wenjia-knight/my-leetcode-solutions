@@ -5,10 +5,10 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        hashmap = {}
-        for i,n in enumerate(nums):
+        hashmap = {} # val : inx
+        for i,n in enumerate(nums): # index of original in nums
             diff = target - n
-            if diff in hashmap:
+            if diff not in hashmap:
+                hashmap[n] = i
+            else:
                 return [hashmap[diff], i]
-            hashmap[n] = i
-            
